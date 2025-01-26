@@ -2,9 +2,10 @@ package com.example.distancecounter.v1.counter;
 
 import com.example.distancecounter.common.bean.ApiResponse;
 import com.example.distancecounter.common.models.Location;
-import com.example.distancecounter.v1.counter.dtos.req.AddPostcodeRequest;
+import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
 import com.example.distancecounter.v1.counter.dtos.req.CalDistanceRequest;
 import com.example.distancecounter.v1.counter.dtos.res.CalDistanceResponse;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,24 +18,25 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class PostcodeServiceImplTest {
+class LocationServiceImplTest {
 
     @Mock
-    private PostcodeRepository postcodeRepository;
+    private LocationRepository locationRepository;
 
     @InjectMocks
-    private PostcodeServiceImpl postcodeService;
+    private LocationServiceImpl locationService;
 
     @Test
-    void getPostcode() {
+    @Order(1)
+    void getLocation() {
         String postcode = "TEST 001";
         double latitude = 12.34;
         double longitude = 56.78;
 
         Location mockPostcode = new Location(postcode, latitude, longitude);
-        when(postcodeRepository.getLocationByPostcode(postcode)).thenReturn(mockPostcode); // Mock repository method
+        when(locationRepository.getLocationByPostcode(postcode)).thenReturn(mockPostcode); // Mock repository method
 
-        ApiResponse<Location> response = postcodeService.getPostcode(postcode);
+        ApiResponse<Location> response = locationService.getLocation(postcode);
 
         assertNotNull(response);
         assertTrue(response.isStatus());
@@ -43,28 +45,30 @@ class PostcodeServiceImplTest {
         assertEquals(latitude, response.getData().getLatitude());
         assertEquals(longitude, response.getData().getLongitude());
 
-        verify(postcodeRepository).getLocationByPostcode(postcode);
+        verify(locationRepository).getLocationByPostcode(postcode);
     }
 
     @Test
-    void addPostcode() {
-        AddPostcodeRequest request = new AddPostcodeRequest();
+    @Order(2)
+    void addLocation() {
+        AddLocationRequest request = new AddLocationRequest();
         request.setPostcode("TEST 001");
         request.setLatitude(12.34);
         request.setLongitude(56.78);
 
-        when(postcodeRepository.addLocation(request)).thenReturn(1);
+        when(locationRepository.addLocation(request)).thenReturn(1);
 
-        ApiResponse<String> response = postcodeService.addPostcode(request);
+        ApiResponse<String> response = locationService.addLocation(request);
 
         assertNotNull(response);
         assertTrue(response.isStatus());
         assertEquals("Added Postcode Successfully!", response.getMsg());
 
-        verify(postcodeRepository).addLocation(any());
+        verify(locationRepository).addLocation(any());
     }
 
     @Test
+    @Order(3)
     void calDistance() {
         CalDistanceRequest req = new CalDistanceRequest();
         req.setPostcodeA("TEST 001");
@@ -75,13 +79,11 @@ class PostcodeServiceImplTest {
 
         double mockDistance = 0.0;
 
-        when(postcodeRepository.getLocationByPostcode("TEST 001")).thenReturn(mockPointA);
-        when(postcodeRepository.getLocationByPostcode("TEST 002")).thenReturn(mockPointB);
+        when(locationRepository.getLocationByPostcode("TEST 001")).thenReturn(mockPointA);
+        when(locationRepository.getLocationByPostcode("TEST 002")).thenReturn(mockPointB);
 
-        // Act
-        ApiResponse<CalDistanceResponse> response = postcodeService.calDistance(req);
+        ApiResponse<CalDistanceResponse> response = locationService.calDistance(req);
 
-        // Assert
         assertNotNull(response);
         assertTrue(response.isStatus());
         assertEquals("Calculated Distance successfully!", response.getMsg());
@@ -90,7 +92,7 @@ class PostcodeServiceImplTest {
         assertEquals(mockPointA, response.getData().getLocations().get(0));
         assertEquals(mockPointB, response.getData().getLocations().get(1));
 
-        verify(postcodeRepository).getLocationByPostcode("TEST 001");
-        verify(postcodeRepository).getLocationByPostcode("TEST 002");
+        verify(locationRepository).getLocationByPostcode("TEST 001");
+        verify(locationRepository).getLocationByPostcode("TEST 002");
     }
 }

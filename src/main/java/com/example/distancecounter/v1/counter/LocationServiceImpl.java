@@ -2,7 +2,7 @@ package com.example.distancecounter.v1.counter;
 
 import com.example.distancecounter.common.bean.ApiResponse;
 import com.example.distancecounter.common.models.Location;
-import com.example.distancecounter.v1.counter.dtos.req.AddPostcodeRequest;
+import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
 import com.example.distancecounter.v1.counter.dtos.req.CalDistanceRequest;
 import com.example.distancecounter.v1.counter.dtos.res.CalDistanceResponse;
 import org.springframework.stereotype.Service;
@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PostcodeServiceImpl implements PostcodeService {
+public class LocationServiceImpl implements LocationService {
     private final static double EARTH_RADIUS = 6371;
 
-    PostcodeRepository postcodeRepository;
-    public PostcodeServiceImpl(PostcodeRepository postcodeRepository) {
-        this.postcodeRepository = postcodeRepository;
+    LocationRepository locationRepository;
+    public LocationServiceImpl(LocationRepository locationRepository) {
+        this.locationRepository = locationRepository;
     }
 
     @Override
-    public ApiResponse<Location> getPostcode(String postcode) {
-        Location location = this.postcodeRepository.getLocationByPostcode(postcode);
+    public ApiResponse<Location> getLocation(String postcode) {
+        Location location = this.locationRepository.getLocationByPostcode(postcode);
         if(location == null ) {
             throw new RuntimeException("Not found postcode");
         }
@@ -28,8 +28,8 @@ public class PostcodeServiceImpl implements PostcodeService {
     }
 
     @Override
-    public ApiResponse<String> addPostcode(AddPostcodeRequest req) {
-        int result = this.postcodeRepository.addLocation(req);
+    public ApiResponse<String> addLocation(AddLocationRequest req) {
+        int result = this.locationRepository.addLocation(req);
         if (result != 1) {
             throw new RuntimeException("Insert Postcode failed");
         }
@@ -38,8 +38,8 @@ public class PostcodeServiceImpl implements PostcodeService {
 
     @Override
     public ApiResponse<CalDistanceResponse> calDistance(CalDistanceRequest req) {
-        Location pointA = this.postcodeRepository.getLocationByPostcode(req.getPostcodeA());
-        Location pointB = this.postcodeRepository.getLocationByPostcode(req.getPostcodeB());
+        Location pointA = this.locationRepository.getLocationByPostcode(req.getPostcodeA());
+        Location pointB = this.locationRepository.getLocationByPostcode(req.getPostcodeB());
 
         if(pointA == null || pointB == null) {
             throw new RuntimeException("Not found pointA or pointB");

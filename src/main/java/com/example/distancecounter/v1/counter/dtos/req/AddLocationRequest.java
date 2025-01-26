@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class AddPostcodeRequest {
+public class AddLocationRequest {
     @NotBlank(message = "postcode is required")
     private String postcode;
     private double latitude;

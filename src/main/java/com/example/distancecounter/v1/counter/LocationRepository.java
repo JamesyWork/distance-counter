@@ -1,20 +1,20 @@
 package com.example.distancecounter.v1.counter;
 
 import com.example.distancecounter.common.models.Location;
-import com.example.distancecounter.v1.counter.dtos.req.AddPostcodeRequest;
+import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class PostcodeRepository {
+public class LocationRepository {
     private final JdbcTemplate jdbcTemplate;
 
-    public PostcodeRepository(JdbcTemplate jdbcTemplate) {
+    public LocationRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-     int addLocation(AddPostcodeRequest newLocation) {
+     int addLocation(AddLocationRequest newLocation) {
          String sql = "INSERT INTO postcodelatlng (postcode, latitude, longitude) VALUES (?, ?, ?)";
          try {
             return jdbcTemplate.update(sql, newLocation.getPostcode(), newLocation.getLatitude(), newLocation.getLongitude());
