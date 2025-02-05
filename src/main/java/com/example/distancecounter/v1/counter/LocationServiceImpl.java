@@ -1,10 +1,12 @@
 package com.example.distancecounter.v1.counter;
 
 import com.example.distancecounter.common.bean.ApiResponse;
+import com.example.distancecounter.common.exception.CustomException;
 import com.example.distancecounter.common.models.Location;
 import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
 import com.example.distancecounter.v1.counter.dtos.req.CalDistanceRequest;
 import com.example.distancecounter.v1.counter.dtos.res.CalDistanceResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +15,9 @@ import java.util.List;
 public class LocationServiceImpl implements LocationService {
     private final static double EARTH_RADIUS = 6371;
 
-    LocationRepository locationRepository;
+    private final LocationRepository locationRepository;
+
+    @Autowired
     public LocationServiceImpl(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
@@ -22,7 +26,7 @@ public class LocationServiceImpl implements LocationService {
     public ApiResponse<Location> getLocation(String postcode) {
         Location location = this.locationRepository.getLocationByPostcode(postcode);
         if(location == null ) {
-            throw new RuntimeException("Not found postcode");
+            throw new CustomException(404, "Not found postcode");
         }
         return ApiResponse.success("Get Postcode Successfully!", location);
     }
@@ -31,7 +35,7 @@ public class LocationServiceImpl implements LocationService {
     public ApiResponse<String> addLocation(AddLocationRequest req) {
         int result = this.locationRepository.addLocation(req);
         if (result != 1) {
-            throw new RuntimeException("Insert Postcode failed");
+            throw new CustomException(500 ,"Insert Postcode failed");
         }
         return ApiResponse.success("Added Postcode Successfully!");
     }
@@ -42,7 +46,7 @@ public class LocationServiceImpl implements LocationService {
         Location pointB = this.locationRepository.getLocationByPostcode(req.getPostcodeB());
 
         if(pointA == null || pointB == null) {
-            throw new RuntimeException("Not found pointA or pointB");
+            throw new CustomException(404, "Not found pointA or pointB");
         }
 
         double totalDistance = calculateDistance(pointA.getLatitude(), pointA.getLongitude(), pointB.getLatitude(), pointB.getLongitude());

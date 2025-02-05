@@ -5,6 +5,7 @@ import com.example.distancecounter.common.models.Location;
 import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
 import com.example.distancecounter.v1.counter.dtos.req.CalDistanceRequest;
 import com.example.distancecounter.v1.counter.dtos.res.CalDistanceResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v1/location")
 public class LocationController {
     private final LocationService locationService;
+
+    @Autowired
     public LocationController(LocationService locationService) {
         this.locationService = locationService;
     }

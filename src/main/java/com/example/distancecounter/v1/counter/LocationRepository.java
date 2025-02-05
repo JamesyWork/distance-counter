@@ -2,6 +2,7 @@ package com.example.distancecounter.v1.counter;
 
 import com.example.distancecounter.common.models.Location;
 import com.example.distancecounter.v1.counter.dtos.req.AddLocationRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 public class LocationRepository {
     private final JdbcTemplate jdbcTemplate;
 
+    @Autowired
     public LocationRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

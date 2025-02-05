@@ -1,0 +1,435 @@
+2025-01-27 00:18:34 [http-nio-8081-exec-1] INFO  API - === START ===
+2025-01-27 00:18:34 [http-nio-8081-exec-1] INFO  API - Request: Method: POST, URI: /v1/postcode/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:18:34 [http-nio-8081-exec-1] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/cal-distance.","data":null}
+2025-01-27 00:18:34 [http-nio-8081-exec-1] INFO  API - Time used for execute: 81 ms
+2025-01-27 00:18:34 [http-nio-8081-exec-1] INFO  API - ===  END  ===
+2025-01-27 00:18:41 [http-nio-8081-exec-3] INFO  API - === START ===
+2025-01-27 00:18:41 [http-nio-8081-exec-3] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:18:41 [http-nio-8081-exec-3] ERROR API - Exception: 
+java.lang.RuntimeException: Not found pointA or pointB
+	at com.example.distancecounter.v1.counter.LocationServiceImpl.calDistance(LocationServiceImpl.java:45)
+	at com.example.distancecounter.v1.counter.LocationController.calculateDistance(LocationController.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.example.distancecounter.common.logging.LoggingFilter.doFilter(LoggingFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-01-27 00:18:41 [http-nio-8081-exec-3] INFO  API - Response: Status: 500, Payload: {"status":false,"msg":"Internal Server Error","data":null}
+2025-01-27 00:18:41 [http-nio-8081-exec-3] INFO  API - Time used for execute: 205 ms
+2025-01-27 00:18:41 [http-nio-8081-exec-3] INFO  API - ===  END  ===
+2025-01-27 00:19:21 [http-nio-8081-exec-5] INFO  API - === START ===
+2025-01-27 00:19:21 [http-nio-8081-exec-5] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:19:21 [http-nio-8081-exec-5] ERROR API - Exception: 
+java.lang.RuntimeException: Not found pointA or pointB
+	at com.example.distancecounter.v1.counter.LocationServiceImpl.calDistance(LocationServiceImpl.java:45)
+	at com.example.distancecounter.v1.counter.LocationController.calculateDistance(LocationController.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.example.distancecounter.common.logging.LoggingFilter.doFilter(LoggingFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-01-27 00:19:21 [http-nio-8081-exec-5] INFO  API - Response: Status: 500, Payload: {"status":false,"msg":"Internal Server Error","data":null}
+2025-01-27 00:19:21 [http-nio-8081-exec-5] INFO  API - Time used for execute: 64 ms
+2025-01-27 00:19:21 [http-nio-8081-exec-5] INFO  API - ===  END  ===
+2025-01-27 00:20:26 [http-nio-8081-exec-7] INFO  API - === START ===
+2025-01-27 00:20:26 [http-nio-8081-exec-7] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:20:26 [http-nio-8081-exec-7] ERROR API - Exception: 
+java.lang.RuntimeException: Not found pointA or pointB
+	at com.example.distancecounter.v1.counter.LocationServiceImpl.calDistance(LocationServiceImpl.java:45)
+	at com.example.distancecounter.v1.counter.LocationController.calculateDistance(LocationController.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.example.distancecounter.common.logging.LoggingFilter.doFilter(LoggingFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-01-27 00:20:26 [http-nio-8081-exec-7] INFO  API - Response: Status: 500, Payload: {"status":false,"msg":"Internal Server Error","data":null}
+2025-01-27 00:20:26 [http-nio-8081-exec-7] INFO  API - Time used for execute: 62 ms
+2025-01-27 00:20:26 [http-nio-8081-exec-7] INFO  API - ===  END  ===
+2025-01-27 00:20:27 [http-nio-8081-exec-9] INFO  API - === START ===
+2025-01-27 00:20:27 [http-nio-8081-exec-9] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:20:27 [http-nio-8081-exec-9] ERROR API - Exception: 
+java.lang.RuntimeException: Not found pointA or pointB
+	at com.example.distancecounter.v1.counter.LocationServiceImpl.calDistance(LocationServiceImpl.java:45)
+	at com.example.distancecounter.v1.counter.LocationController.calculateDistance(LocationController.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.example.distancecounter.common.logging.LoggingFilter.doFilter(LoggingFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-01-27 00:20:27 [http-nio-8081-exec-9] INFO  API - Response: Status: 500, Payload: {"status":false,"msg":"Internal Server Error","data":null}
+2025-01-27 00:20:27 [http-nio-8081-exec-9] INFO  API - Time used for execute: 56 ms
+2025-01-27 00:20:27 [http-nio-8081-exec-9] INFO  API - ===  END  ===
+2025-01-27 00:20:30 [http-nio-8081-exec-10] INFO  API - === START ===
+2025-01-27 00:20:30 [http-nio-8081-exec-10] INFO  API - Request: Method: GET, URI: /v1/postcode/TEST%20004, Payload: 
+2025-01-27 00:20:30 [http-nio-8081-exec-10] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/TEST%20004.","data":null}
+2025-01-27 00:20:30 [http-nio-8081-exec-10] INFO  API - Time used for execute: 3 ms
+2025-01-27 00:20:30 [http-nio-8081-exec-10] INFO  API - ===  END  ===
+2025-01-27 00:20:31 [http-nio-8081-exec-1] INFO  API - === START ===
+2025-01-27 00:20:31 [http-nio-8081-exec-1] INFO  API - Request: Method: GET, URI: /v1/postcode/TEST%20004, Payload: 
+2025-01-27 00:20:31 [http-nio-8081-exec-1] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/TEST%20004.","data":null}
+2025-01-27 00:20:31 [http-nio-8081-exec-1] INFO  API - Time used for execute: 1 ms
+2025-01-27 00:20:31 [http-nio-8081-exec-1] INFO  API - ===  END  ===
+2025-01-27 00:20:35 [http-nio-8081-exec-3] INFO  API - === START ===
+2025-01-27 00:20:35 [http-nio-8081-exec-3] INFO  API - Request: Method: GET, URI: /v1/location/TEST%20004, Payload: 
+2025-01-27 00:20:35 [http-nio-8081-exec-3] ERROR API - Exception: 
+java.lang.RuntimeException: Not found postcode
+	at com.example.distancecounter.v1.counter.LocationServiceImpl.getLocation(LocationServiceImpl.java:25)
+	at com.example.distancecounter.v1.counter.LocationController.getPostcode(LocationController.java:26)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.example.distancecounter.common.logging.LoggingFilter.doFilter(LoggingFilter.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-01-27 00:20:35 [http-nio-8081-exec-3] INFO  API - Response: Status: 500, Payload: {"status":false,"msg":"Internal Server Error","data":null}
+2025-01-27 00:20:35 [http-nio-8081-exec-3] INFO  API - Time used for execute: 40 ms
+2025-01-27 00:20:35 [http-nio-8081-exec-3] INFO  API - ===  END  ===
+2025-01-27 00:24:42 [http-nio-8081-exec-1] INFO  API - === START ===
+2025-01-27 00:24:42 [http-nio-8081-exec-1] INFO  API - Request: Method: GET, URI: /v1/location/TEST%20004, Payload: 
+2025-01-27 00:24:46 [http-nio-8081-exec-1] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Get Postcode Successfully!","data":{"postcode":"TEST 004","latitude":125.0,"longitude":125.0}}
+2025-01-27 00:24:46 [http-nio-8081-exec-1] INFO  API - Time used for execute: 3412 ms
+2025-01-27 00:24:46 [http-nio-8081-exec-1] INFO  API - ===  END  ===
+2025-01-27 00:24:49 [http-nio-8081-exec-5] INFO  API - === START ===
+2025-01-27 00:24:49 [http-nio-8081-exec-5] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {    "postcodeA": "AB10 1XG",    "postcodeB": "ZE1 0FJ"}
+2025-01-27 00:24:49 [http-nio-8081-exec-5] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Calculated Distance successfully!","data":{"locations":[{"postcode":"AB10 1XG","latitude":57.144165,"longitude":-2.114848},{"postcode":"ZE1 0FJ","latitude":60.140839,"longitude":-1.263912}],"distance":336.8256501413211,"unit":"km"}}
+2025-01-27 00:24:49 [http-nio-8081-exec-5] INFO  API - Time used for execute: 386 ms
+2025-01-27 00:24:49 [http-nio-8081-exec-5] INFO  API - ===  END  ===
+2025-01-27 00:24:53 [http-nio-8081-exec-4] INFO  API - === START ===
+2025-01-27 00:24:53 [http-nio-8081-exec-4] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {    "postcode": "TEST 004",    "latitude": "125.00000",    "longitude": "125.00000"}
+2025-01-27 00:24:53 [http-nio-8081-exec-4] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:24:53 [http-nio-8081-exec-4] INFO  API - Time used for execute: 10 ms
+2025-01-27 00:24:53 [http-nio-8081-exec-4] INFO  API - ===  END  ===
+2025-01-27 00:25:09 [http-nio-8081-exec-2] INFO  API - === START ===
+2025-01-27 00:25:09 [http-nio-8081-exec-2] INFO  API - Request: Method: POST, URI: /v1/location, Payload: {    "postcode": "TEST 005",    "latitude": "126.00000",    "longitude": "126.00000"}
+2025-01-27 00:25:09 [http-nio-8081-exec-2] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Added Postcode Successfully!","data":null}
+2025-01-27 00:25:09 [http-nio-8081-exec-2] INFO  API - Time used for execute: 57 ms
+2025-01-27 00:25:09 [http-nio-8081-exec-2] INFO  API - ===  END  ===
+2025-01-27 00:25:14 [http-nio-8081-exec-6] INFO  API - === START ===
+2025-01-27 00:25:14 [http-nio-8081-exec-6] INFO  API - Request: Method: GET, URI: /v1/location/TEST%20005, Payload: 
+2025-01-27 00:25:14 [http-nio-8081-exec-6] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Get Postcode Successfully!","data":{"postcode":"TEST 005","latitude":126.0,"longitude":126.0}}
+2025-01-27 00:25:14 [http-nio-8081-exec-6] INFO  API - Time used for execute: 157 ms
+2025-01-27 00:25:14 [http-nio-8081-exec-6] INFO  API - ===  END  ===
+2025-01-27 00:27:07 [main] INFO  API - === START ===
+2025-01-27 00:27:07 [main] INFO  API - Request: Method: GET, URI: /v1/postcode/TEST%20001, Payload: 
+2025-01-27 00:27:07 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/TEST%20001.","data":null}
+2025-01-27 00:27:07 [main] INFO  API - Time used for execute: 277 ms
+2025-01-27 00:27:07 [main] INFO  API - ===  END  ===
+2025-01-27 00:27:07 [main] INFO  API - === START ===
+2025-01-27 00:27:07 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"","latitude":12.34,"longitude":56.78}
+2025-01-27 00:27:07 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:27:07 [main] INFO  API - Time used for execute: 6 ms
+2025-01-27 00:27:07 [main] INFO  API - ===  END  ===
+2025-01-27 00:27:07 [main] INFO  API - === START ===
+2025-01-27 00:27:07 [main] INFO  API - Request: Method: POST, URI: /v1/postcode/cal-distance, Payload: {"postcodeA":"TEST 001","postcodeB":"TEST 002"}
+2025-01-27 00:27:07 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/cal-distance.","data":null}
+2025-01-27 00:27:07 [main] INFO  API - Time used for execute: 5 ms
+2025-01-27 00:27:07 [main] INFO  API - ===  END  ===
+2025-01-27 00:27:07 [main] INFO  API - === START ===
+2025-01-27 00:27:07 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"TEST 001","latitude":12.34,"longitude":56.78}
+2025-01-27 00:27:07 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:27:07 [main] INFO  API - Time used for execute: 4 ms
+2025-01-27 00:27:07 [main] INFO  API - ===  END  ===
+2025-01-27 00:28:55 [main] INFO  API - === START ===
+2025-01-27 00:28:55 [main] INFO  API - Request: Method: GET, URI: /v1/postcode/TEST%20001, Payload: 
+2025-01-27 00:28:55 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/TEST%20001.","data":null}
+2025-01-27 00:28:55 [main] INFO  API - Time used for execute: 286 ms
+2025-01-27 00:28:55 [main] INFO  API - ===  END  ===
+2025-01-27 00:28:55 [main] INFO  API - === START ===
+2025-01-27 00:28:55 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"","latitude":12.34,"longitude":56.78}
+2025-01-27 00:28:55 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:28:55 [main] INFO  API - Time used for execute: 6 ms
+2025-01-27 00:28:55 [main] INFO  API - ===  END  ===
+2025-01-27 00:28:55 [main] INFO  API - === START ===
+2025-01-27 00:28:55 [main] INFO  API - Request: Method: POST, URI: /v1/postcode/cal-distance, Payload: {"postcodeA":"TEST 001","postcodeB":"TEST 002"}
+2025-01-27 00:28:55 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/cal-distance.","data":null}
+2025-01-27 00:28:55 [main] INFO  API - Time used for execute: 6 ms
+2025-01-27 00:28:55 [main] INFO  API - ===  END  ===
+2025-01-27 00:28:55 [main] INFO  API - === START ===
+2025-01-27 00:28:55 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"TEST 001","latitude":12.34,"longitude":56.78}
+2025-01-27 00:28:55 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:28:55 [main] INFO  API - Time used for execute: 4 ms
+2025-01-27 00:28:55 [main] INFO  API - ===  END  ===
+2025-01-27 00:31:01 [main] INFO  API - === START ===
+2025-01-27 00:31:01 [main] INFO  API - Request: Method: POST, URI: /v1/postcode/cal-distance, Payload: {"postcodeA":"TEST 001","postcodeB":"TEST 002"}
+2025-01-27 00:31:01 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/cal-distance.","data":null}
+2025-01-27 00:31:01 [main] INFO  API - Time used for execute: 233 ms
+2025-01-27 00:31:01 [main] INFO  API - ===  END  ===
+2025-01-27 00:31:02 [main] INFO  API - === START ===
+2025-01-27 00:31:02 [main] INFO  API - Request: Method: GET, URI: /v1/postcode/TEST%20001, Payload: 
+2025-01-27 00:31:02 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode/TEST%20001.","data":null}
+2025-01-27 00:31:02 [main] INFO  API - Time used for execute: 9 ms
+2025-01-27 00:31:02 [main] INFO  API - ===  END  ===
+2025-01-27 00:31:02 [main] INFO  API - === START ===
+2025-01-27 00:31:02 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"","latitude":12.34,"longitude":56.78}
+2025-01-27 00:31:02 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:31:02 [main] INFO  API - Time used for execute: 4 ms
+2025-01-27 00:31:02 [main] INFO  API - ===  END  ===
+2025-01-27 00:31:02 [main] INFO  API - === START ===
+2025-01-27 00:31:02 [main] INFO  API - Request: Method: POST, URI: /v1/postcode, Payload: {"postcode":"TEST 001","latitude":12.34,"longitude":56.78}
+2025-01-27 00:31:02 [main] INFO  API - Response: Status: 404, Payload: {"status":false,"msg":"No static resource v1/postcode.","data":null}
+2025-01-27 00:31:02 [main] INFO  API - Time used for execute: 4 ms
+2025-01-27 00:31:02 [main] INFO  API - ===  END  ===
+2025-01-27 00:32:57 [main] INFO  API - === START ===
+2025-01-27 00:32:57 [main] INFO  API - Request: Method: POST, URI: /v1/location/cal-distance, Payload: {"postcodeA":"TEST 001","postcodeB":"TEST 002"}
+2025-01-27 00:32:58 [main] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Calculated Distance successfully!","data":{"locations":[{"postcode":"TEST 001","latitude":12.34,"longitude":56.78},{"postcode":"TEST 002","latitude":12.34,"longitude":56.78}],"distance":0.0,"unit":"km"}}
+2025-01-27 00:32:58 [main] INFO  API - Time used for execute: 463 ms
+2025-01-27 00:32:58 [main] INFO  API - ===  END  ===
+2025-01-27 00:32:58 [main] INFO  API - === START ===
+2025-01-27 00:32:58 [main] INFO  API - Request: Method: GET, URI: /v1/location/TEST%20001, Payload: 
+2025-01-27 00:32:58 [main] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Get Postcode Successfully!","data":{"postcode":"TEST 001","latitude":12.34,"longitude":56.78}}
+2025-01-27 00:32:58 [main] INFO  API - Time used for execute: 15 ms
+2025-01-27 00:32:58 [main] INFO  API - ===  END  ===
+2025-01-27 00:32:58 [main] INFO  API - === START ===
+2025-01-27 00:32:58 [main] INFO  API - Request: Method: POST, URI: /v1/location, Payload: {"postcode":"","latitude":12.34,"longitude":56.78}
+2025-01-27 00:32:58 [main] INFO  API - Response: Status: 400, Payload: {"status":false,"msg":"Error - postcode is required","data":null}
+2025-01-27 00:32:58 [main] INFO  API - Time used for execute: 48 ms
+2025-01-27 00:32:58 [main] INFO  API - ===  END  ===
+2025-01-27 00:32:58 [main] INFO  API - === START ===
+2025-01-27 00:32:58 [main] INFO  API - Request: Method: POST, URI: /v1/location, Payload: {"postcode":"TEST 001","latitude":12.34,"longitude":56.78}
+2025-01-27 00:32:58 [main] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Postcode added successfully","data":null}
+2025-01-27 00:32:58 [main] INFO  API - Time used for execute: 4 ms
+2025-01-27 00:32:58 [main] INFO  API - ===  END  ===
+2025-01-27 00:34:32 [http-nio-8081-exec-1] INFO  API - === START ===
+2025-01-27 00:34:32 [http-nio-8081-exec-1] INFO  API - Request: Method: GET, URI: /v1/location/TEST%20005, Payload: 
+2025-01-27 00:34:32 [http-nio-8081-exec-1] INFO  API - Response: Status: 200, Payload: {"status":true,"msg":"Get Postcode Successfully!","data":{"postcode":"TEST 005","latitude":126.0,"longitude":126.0}}
+2025-01-27 00:34:32 [http-nio-8081-exec-1] INFO  API - Time used for execute: 280 ms
+2025-01-27 00:34:32 [http-nio-8081-exec-1] INFO  API - ===  END  ===
